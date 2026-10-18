@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ember &amp; Salt Kitchen | Restaurant in Accra</title>
+  <meta name="description" content="Sample restaurant website for a fictional kitchen in Accra. Menu, hours, and reservations via WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Ember & Salt Kitchen",
+    "description": "Sample restaurant in Accra (fictional, for portfolio use).",
+    "telephone": "+233200000000",
+    "servesCuisine": "Ghanaian, Grill",
+    "openingHours": "Mo-Su 11:00-22:00",
+    "address": { "@type": "PostalAddress", "addressLocality": "Accra", "addressCountry": "GH" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo" data-bind="name"></a>
+      <nav class="nav">
+        <a href="#menu">Menu</a>
+        <a href="#specials">Specials</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="btn btn-red btn-small" data-wa>Book a table</a>
+    </div>
+  </header>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 class="hero-title" data-bind="headline"></h1>
+          <p class="lead" data-bind="subtext"></p>
+          <div class="hero-actions">
+            <a class="btn btn-red" data-wa>Book a table</a>
+            <a class="btn btn-ghost" href="#menu">See the menu</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="photo-placeholder" role="img" aria-label="Placeholder food photo"></div>
+          <span class="sticker" data-bind="stickerText"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="container feature-grid">
+        <div class="feature-visual" aria-hidden="true">
+          <span class="vertical-word" data-bind="featureWord"></span>
+        </div>
+        <div class="feature-text">
+          <h2 data-bind="featureTitle"></h2>
+          <p data-bind="featureText"></p>
+          <a class="btn btn-red" href="#menu">Explore the menu</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <h2 class="section-title">Our menu</h2>
+        <div class="menu-grid" id="menu-items"></div>
+      </div>
+    </section>
+
+    <section class="section section-mustard" id="specials">
+      <div class="container">
+        <h2 class="section-title">This week's specials</h2>
+        <div class="specials" id="specials-items"></div>
+        <p class="note" data-bind="specialsNote"></p>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="container visit-grid">
+        <div>
+          <h2 class="section-title">Visit us</h2>
+          <p><strong>Address:</strong> <span data-bind="address"></span></p>
+          <p><strong>Hours:</strong> <span data-bind="hours"></span></p>
+          <p><strong>Call:</strong> <a data-tel data-bind="phoneDisplay"></a></p>
+          <div class="hero-actions">
+            <a class="btn btn-red" data-wa>Book on WhatsApp</a>
+            <a class="btn btn-ghost-dark" data-maps target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+        <div class="hours-card">
+          <h3>Opening hours</h3>
+          <ul id="hours-list"></ul>
+          <p class="payments" data-bind="payments"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" data-bind="footer"></div>
+  </footer>
+
+  <a class="fab-whatsapp" data-wa aria-label="Book on WhatsApp">Book a table</a>
+
+  <script src="site-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
